@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="DHDataService" targetNamespace="http://tempuri.org/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+	xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+	xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://tempuri.org/Imports">
+			<xsd:import schemaLocation="http://172.16.8.97:8103/Emerson/DHDataService?xsd=xsd0"
+				namespace="http://tempuri.org/" />
+			<xsd:import schemaLocation="http://172.16.8.97:8103/Emerson/DHDataService?xsd=xsd1"
+				namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="IDHDataService_IsRuning_InputMessage">
+		<wsdl:part name="parameters" element="tns:IsRuning" />
+	</wsdl:message>
+	<wsdl:message name="IDHDataService_IsRuning_OutputMessage">
+		<wsdl:part name="parameters" element="tns:IsRuningResponse" />
+	</wsdl:message>
+	<wsdl:message name="IDHDataService_GetConfig_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetConfig" />
+	</wsdl:message>
+	<wsdl:message name="IDHDataService_GetConfig_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetConfigResponse" />
+	</wsdl:message>
+	<wsdl:message name="IDHDataService_GetRealTimeData_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetRealTimeData" />
+	</wsdl:message>
+	<wsdl:message name="IDHDataService_GetRealTimeData_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetRealTimeDataResponse" />
+	</wsdl:message>
+	<wsdl:portType name="IDHDataService">
+		<wsdl:operation name="IsRuning">
+			<wsdl:input wsaw:Action="http://tempuri.org/IDHDataService/IsRuning"
+				message="tns:IDHDataService_IsRuning_InputMessage" />
+			<wsdl:output wsaw:Action="http://tempuri.org/IDHDataService/IsRuningResponse"
+				message="tns:IDHDataService_IsRuning_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetConfig">
+			<wsdl:input wsaw:Action="http://tempuri.org/IDHDataService/GetConfig"
+				message="tns:IDHDataService_GetConfig_InputMessage" />
+			<wsdl:output wsaw:Action="http://tempuri.org/IDHDataService/GetConfigResponse"
+				message="tns:IDHDataService_GetConfig_OutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="GetRealTimeData">
+			<wsdl:input wsaw:Action="http://tempuri.org/IDHDataService/GetRealTimeData"
+				message="tns:IDHDataService_GetRealTimeData_InputMessage" />
+			<wsdl:output
+				wsaw:Action="http://tempuri.org/IDHDataService/GetRealTimeDataResponse"
+				message="tns:IDHDataService_GetRealTimeData_OutputMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="BasicHttpBinding_IDHDataService" type="tns:IDHDataService">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="IsRuning">
+			<soap:operation soapAction="http://tempuri.org/IDHDataService/IsRuning"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetConfig">
+			<soap:operation soapAction="http://tempuri.org/IDHDataService/GetConfig"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetRealTimeData">
+			<soap:operation soapAction="http://tempuri.org/IDHDataService/GetRealTimeData"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="DHDataService">
+		<wsdl:port name="BasicHttpBinding_IDHDataService" binding="tns:BasicHttpBinding_IDHDataService">
+			<soap:address location="http://172.16.8.97:8103/Emerson/DHDataService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
